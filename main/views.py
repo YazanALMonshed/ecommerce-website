@@ -1,11 +1,26 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView 
 from .models import Item
 # Create your views here.
 
 
 
-def all_items(request):
-    context = {
-        'items': Item.objects.all()
-    }
-    return render(request, 'index.html', context)
+
+
+class ListItem(ListView):
+    model = Item
+    template_name = 'index.html'
+
+
+
+class ItemDetailView(DetailView):
+    model = Item
+    template_name = "shop-single.html"
+
+
+class Cart(ListView):
+    model = Item
+    template_name = 'cart.html'
+
+
+

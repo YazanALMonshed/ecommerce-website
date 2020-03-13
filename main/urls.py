@@ -1,5 +1,16 @@
 from django.urls import path
-from . import views
+from .views import (
+   ListItem,
+   ItemDetailView,
+   Cart 
+)
+
+app_name='core'
+
 urlpatterns = [
-   path('', views.all_items, name='home')
+   path('', ListItem.as_view(), name='home'),
+   path('shope/<slug>/', ItemDetailView.as_view(), name='detail'),
+   path('cart/', Cart.as_view(), name='cart'),
+
 ]
+  
