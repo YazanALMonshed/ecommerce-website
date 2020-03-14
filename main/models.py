@@ -10,6 +10,7 @@ class Item(models.Model):
     price = models.FloatField()
     discount = models.FloatField(blank=True, null=True)
     discription = models.TextField(default="there is now discrption for this product.") 
+    # image = models.ImageField(upload_to='/static/image')
     slug = models.SlugField()
 
     def __str__(self):
